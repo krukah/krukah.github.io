@@ -7,8 +7,10 @@
 
 :root {
     --font-mono: 'Courier New', Courier, monospace;
-    --color-text: #000;
-    --color-bg: #fff;
+    --color-text: #fff;
+    --color-bg: #000;
+    --color-link: #fff;
+    --color-border: rgba(255, 255, 255, 0.2);
 }
 
 body {
@@ -62,12 +64,14 @@ nav ul li a:hover {
 
 /* Links */
 a {
-    color: var(--color-text);
+    color: var(--color-link);
     text-decoration: underline;
+    text-decoration-color: var(--color-border);
 }
 
 a:hover {
     text-decoration: none;
+    opacity: 0.8;
 }
 
 /* Lists */
@@ -85,8 +89,9 @@ section {
 footer {
     margin-top: 4rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--color-text);
+    border-top: 1px solid var(--color-border);
     font-size: 0.9rem;
+    opacity: 0.8;
 }
 
 /* Media Queries */
