@@ -1,16 +1,18 @@
-/* Base layout */
 body {
+    margin: 0;
+    padding: 2rem;
     font-family: monospace;
-    background-color: #fff;
-    color: #000;
-    font-size: 16px;
+    background-color: #000;
+    color: #fff;
+    max-width: 60ch;
     line-height: 1.5;
-    margin: 2rem auto;
-    max-width: 50ch;
-    padding: 0 1ch;
 }
 
-/* Headings */
+a {
+    color: #0ff;
+    text-decoration: underline;
+}
+
 h1,
 h2,
 h3,
@@ -22,56 +24,38 @@ h6 {
     margin-bottom: 1rem;
 }
 
-/* Links */
-a {
-    color: inherit;
-    text-decoration: underline;
-}
-
-/* Code blocks and inline code */
-code,
-pre {
-    font-family: inherit;
-    background: #eee;
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-}
-
-pre {
-    padding: 1em;
-    overflow-x: auto;
-    background: #eee;
-}
-
-/* Lists */
 ul,
 ol {
     padding-left: 2ch;
 }
 
-/* Images */
-img {
-    max-width: 100%;
-    height: auto;
+code,
+pre {
+    font-family: inherit;
+    background-color: #111;
+    color: #0f0;
+    padding: 0.5em;
+    border-radius: 0.2em;
 }
 
-/* Horizontal rule */
-hr {
-    border: none;
-    border-top: 1px solid #aaa;
-    margin: 2rem 0;
+pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
 }
 
-/* Blockquotes */
 blockquote {
-    border-left: 3px solid #aaa;
+    border-left: 2px solid #888;
     padding-left: 1ch;
-    color: #555;
-    margin-left: 0;
+    color: #ccc;
     font-style: italic;
 }
 
-/* Tables */
+hr {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 2rem 0;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -80,12 +64,16 @@ table {
 
 th,
 td {
-    border: 1px solid #aaa;
+    border: 1px solid #666;
     padding: 0.5rem;
     text-align: left;
 }
 
-/* Remove all fancy */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 * {
     box-sizing: border-box;
 }
