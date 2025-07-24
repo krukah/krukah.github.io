@@ -1,107 +1,91 @@
-/* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --font-mono: 'Courier New', Courier, monospace;
-    --color-text: #fff;
-    --color-bg: #000;
-    --color-link: #fff;
-    --color-border: rgba(255, 255, 255, 0.2);
-}
-
+/* Base layout */
 body {
-    font-family: var(--font-mono);
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    font-family: monospace;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
     line-height: 1.5;
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+    margin: 2rem auto;
+    max-width: 50ch;
+    padding: 0 1ch;
 }
 
-/* Typography */
-h1, h2 {
-    font-weight: normal;
-    margin-bottom: 2rem;
-}
-
-h1 {
-    font-size: 1.5rem;
-}
-
-h2 {
-    font-size: 1.2rem;
-    margin-top: 3rem;
-}
-
-p {
-    margin-bottom: 1.5rem;
-}
-
-/* Navigation */
-nav {
-    margin: 2rem 0 4rem 0;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-nav ul li a {
-    color: var(--color-text);
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 /* Links */
 a {
-    color: var(--color-link);
+    color: inherit;
     text-decoration: underline;
-    text-decoration-color: var(--color-border);
 }
 
-a:hover {
-    text-decoration: none;
-    opacity: 0.8;
+/* Code blocks and inline code */
+code,
+pre {
+    font-family: inherit;
+    background: #eee;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
+
+pre {
+    padding: 1em;
+    overflow-x: auto;
+    background: #eee;
 }
 
 /* Lists */
-ul {
-    list-style-type: none;
-    margin: 1rem 0 2rem 1rem;
+ul,
+ol {
+    padding-left: 2ch;
 }
 
-/* Sections */
-section {
-    margin-bottom: 4rem;
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-/* Footer */
-footer {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-border);
-    font-size: 0.9rem;
-    opacity: 0.8;
+/* Horizontal rule */
+hr {
+    border: none;
+    border-top: 1px solid #aaa;
+    margin: 2rem 0;
 }
 
-/* Media Queries */
-@media (max-width: 600px) {
-    body {
-        padding: 1rem;
-    }
+/* Blockquotes */
+blockquote {
+    border-left: 3px solid #aaa;
+    padding-left: 1ch;
+    color: #555;
+    margin-left: 0;
+    font-style: italic;
+}
 
-    nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+th,
+td {
+    border: 1px solid #aaa;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+/* Remove all fancy */
+* {
+    box-sizing: border-box;
 }
