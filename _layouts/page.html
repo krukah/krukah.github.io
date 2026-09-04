@@ -2,9 +2,21 @@
 layout: default
 ---
 <div class="wrap">
+  {%- if page.plate %}
+  <header class="post__head">
+    {% include plate.html name=page.plate scale='lg' %}
+    <div>
+      <h1 class="post__title">{{ page.title }}</h1>
+      {%- if page.lead %}
+      <p class="post__sub">{{ page.lead }}</p>
+      {%- endif %}
+    </div>
+  </header>
+  {%- else %}
   <header class="page__head">
     <h1 class="page__title">{{ page.title }}</h1>
   </header>
+  {%- endif %}
   <article class="prose">
     {{ content }}
   </article>
