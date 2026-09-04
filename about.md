@@ -4,8 +4,9 @@ title: about me
 plate: compass
 register: true
 lead: >-
-  Market microstructure, game theory, counterfactual regret, particle
-  physics, machine learning, poker, jazz, film.
+  High energy physics, trading, exchanges, film, game theory, programming
+  languages, formal verification, software engineering, market
+  microstructure, poker, chess.
 description: >-
   Kelechi Rock Ukah — founder and CTO at Novig, writing about markets,
   software, physics, game theory, and film.
