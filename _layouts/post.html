@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<div class="wrap">
+
+  <header class="post__head">
+    {% include plate.html name=page.plate scale='lg' %}
+    <div>
+      <h1 class="post__title">{{ page.title }}</h1>
+      {%- if page.description %}
+      <p class="post__sub">{{ page.description }}</p>
+      {%- endif %}
+      <div class="post__meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
+        {%- assign words = page.content | number_of_words %}
+        <span>{{ words | divided_by: 220 | plus: 1 }} MIN</span>
+        {%- for tag in page.tags %}
+        <a href="{{ '/' | relative_url }}#{{ tag }}">{{ tag }}</a>
+        {%- endfor %}
+      </div>
+    </div>
+  </header>
+
+  <article class="prose">
+    {{ content }}
+  </article>
+
+  <nav class="after" aria-label="More posts">
+    {%- if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}"><b>OLDER</b>{{ page.previous.title }}</a>
+    {%- endif %}
+    {%- if page.next %}
+    <a class="after__next" href="{{ page.next.url | relative_url }}"><b>NEWER</b>{{ page.next.title }}</a>
+    {%- endif %}
+  </nav>
+
+</div>

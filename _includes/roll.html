@@ -1,0 +1,20 @@
+{%- comment -%}
+  A list of posts. Pass posts= a post array. Each row carries its tags on
+  the <li> so the filter on /writing/ can hide it without a reload.
+{%- endcomment -%}
+<ol class="roll">
+  {%- for post in include.posts %}
+  <li class="roll__item" data-tags="{{ post.tags | join: ' ' }}">
+    <a class="roll__link" href="{{ post.url | relative_url }}">
+      {% include plate.html name=post.plate %}
+      <time class="roll__when" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m" }}</time>
+      <span class="roll__title">{{ post.title }}</span>
+      <span class="roll__tag">{{ post.tags | first }}</span>
+      <span class="roll__meta">
+        <span>{{ post.date | date: "%Y.%m" }}</span>
+        <span>{{ post.tags | first }}</span>
+      </span>
+    </a>
+  </li>
+  {%- endfor %}
+</ol>

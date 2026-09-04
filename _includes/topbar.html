@@ -1,0 +1,11 @@
+<header class="top">
+  <div class="wrap">
+    <span class="top__me"><a href="{{ '/' | relative_url }}">kelechi rock ukah</a></span>
+    <nav aria-label="Sections">
+      <a href="{{ '/#projects' | relative_url }}">projects</a>
+      <a href="{{ '/#writing' | relative_url }}">writing</a>
+      <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about' %} aria-current="page"{% endif %}>about</a>
+      <a href="https://github.com/{{ site.github_user }}">code</a>
+    </nav>
+  </div>
+</header>

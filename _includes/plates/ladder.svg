@@ -1,0 +1,11 @@
+<svg viewBox="0 0 120 120" role="presentation" focusable="false">
+  <line class="p-l" x1="60" y1="12" x2="60" y2="108"/>
+  <line class="p-f p-w" x1="18" y1="22" x2="60" y2="22"/>
+  <line class="p-f p-w" x1="31" y1="34" x2="60" y2="34"/>
+  <line class="p-f p-w" x1="10" y1="46" x2="60" y2="46"/>
+  <line class="p-f p-w" x1="38" y1="56" x2="60" y2="56"/>
+  <line class="p-l p-w" x1="60" y1="74" x2="96" y2="74"/>
+  <line class="p-l p-w" x1="60" y1="86" x2="79" y2="86"/>
+  <line class="p-l p-w" x1="60" y1="98" x2="108" y2="98"/>
+  <line class="p-h" x1="6" y1="65" x2="114" y2="65" stroke-dasharray="4 3.5"/>
+</svg>

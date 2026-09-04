@@ -1,0 +1,14 @@
+<svg viewBox="0 0 120 120" role="presentation" focusable="false">
+  <path class="p-l" d="M60 14 L32 44 M60 14 L88 44
+                       M32 44 L18 74 M32 44 L46 74
+                       M88 44 L74 74 M88 44 L102 74
+                       M18 74 L11 104 M18 74 L25 104
+                       M46 74 L39 104 M46 74 L53 104
+                       M74 74 L67 104 M74 74 L81 104
+                       M102 74 L95 104 M102 74 L109 104"/>
+  <path class="p-h" d="M60 14 L32 44 L46 74 L39 104"/>
+  <circle class="p-f" cx="60" cy="14" r="3.2"/>
+  <circle class="p-f" cx="88" cy="44" r="2.6"/>
+  <circle class="p-f" cx="102" cy="74" r="2.2"/>
+  <circle class="p-d" cx="39" cy="104" r="2.4"/>
+</svg>

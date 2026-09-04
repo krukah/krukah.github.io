@@ -1,0 +1,17 @@
+{%- comment -%}
+  Renders one line figure. Pass name= a file in _includes/plates and,
+  optionally, scale='lg'. Unknown names fall back to the rosette.
+{%- endcomment -%}
+{%- assign p = include.name | default: 'rosette' -%}
+<span class="plate{% if include.scale %} plate--{{ include.scale }}{% endif %}" aria-hidden="true">
+{%- case p -%}
+{%- when 'ladder' -%}{% include plates/ladder.svg %}
+{%- when 'tree' -%}{% include plates/tree.svg %}
+{%- when 'cluster' -%}{% include plates/cluster.svg %}
+{%- when 'wave' -%}{% include plates/wave.svg %}
+{%- when 'lattice' -%}{% include plates/lattice.svg %}
+{%- when 'keys' -%}{% include plates/keys.svg %}
+{%- when 'reel' -%}{% include plates/reel.svg %}
+{%- else -%}{% include plates/rosette.svg %}
+{%- endcase -%}
+</span>

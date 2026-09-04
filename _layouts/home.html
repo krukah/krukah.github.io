@@ -1,0 +1,90 @@
+---
+layout: default
+---
+<div class="field" aria-hidden="true"></div>
+<div class="wrap">
+
+  <div class="hero">
+    <h1 class="hero__word">{{ site.title }}</h1>
+    <p class="hero__say">{{ content }}</p>
+    <div class="hero__meta">
+      <span>{{ site.location }}</span>
+      {%- if site.posts.size > 0 %}
+      <span>{{ site.posts | size }} POSTS</span>
+      {%- endif %}
+    </div>
+  </div>
+
+  <h2 class="band" id="projects">PROJECTS</h2>
+  <div class="cells">
+    {%- for item in site.data.projects %}
+    <a class="cell" href="{{ item.url }}">
+      {% include plate.html name=item.plate %}
+      <h3 class="cell__name">{{ item.name }}</h3>
+      <span class="cell__est">{{ item.est }}</span>
+      <p class="cell__say">{{ item.blurb }}</p>
+    </a>
+    {%- endfor %}
+  </div>
+
+  <h2 class="band" id="writing">WRITING</h2>
+
+  {%- if site.posts.size > 0 %}
+  <div class="sift" id="sift" role="group" aria-label="Filter posts by tag">
+    <button type="button" data-tag="*" aria-pressed="true">all</button>
+    {%- assign tags = site.tags | sort %}
+    {%- for tag in tags %}
+    <button type="button" data-tag="{{ tag[0] }}" aria-pressed="false">{{ tag[0] }}</button>
+    {%- endfor %}
+    <span class="sift__count" id="sift-count" aria-live="polite">{{ site.posts | size }} posts</span>
+  </div>
+
+  {% include roll.html posts=site.posts %}
+  {%- else %}
+  <div class="hush">
+    <p>No posts yet.</p>
+    <p>The <a href="{{ '/feed.xml' | relative_url }}">feed</a> is live if you
+    want to be told when that changes.</p>
+  </div>
+  {%- endif %}
+
+  <h2 class="band" id="elsewhere">ELSEWHERE</h2>
+  <div class="reach">
+    <span>email <a href="mailto:{{ site.email }}">{{ site.email }}</a></span>
+    <span>github <a href="https://github.com/{{ site.github_user }}">{{ site.github_user }}</a></span>
+    <span>linkedin <a href="{{ site.linkedin_url }}">kelechi ukah</a></span>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var sift = document.getElementById('sift');
+  if (!sift) return;
+  var chips = Array.prototype.slice.call(sift.querySelectorAll('button'));
+  var rows  = Array.prototype.slice.call(document.querySelectorAll('.roll__item'));
+  var count = document.getElementById('sift-count');
+
+  function apply(tag){
+    var shown = 0;
+    rows.forEach(function(row){
+      var hit = tag === '*' ||
+                (' ' + row.dataset.tags + ' ').indexOf(' ' + tag + ' ') > -1;
+      row.classList.toggle('is-out', !hit);
+      if (hit) shown++;
+    });
+    chips.forEach(function(c){
+      c.setAttribute('aria-pressed', c.dataset.tag === tag ? 'true' : 'false');
+    });
+    count.textContent = shown + (shown === 1 ? ' post' : ' posts');
+    history.replaceState(null, '', tag === '*' ? location.pathname : '#' + tag);
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){ apply(chip.dataset.tag); });
+  });
+
+  var start = location.hash.slice(1);
+  if (start && chips.some(function(c){ return c.dataset.tag === start; })) apply(start);
+})();
+</script>

@@ -1,0 +1,9 @@
+{%- comment -%}
+  GoatCounter. No cookies, no personal data, nothing to disclose. Set
+  `goatcounter` in _config.yml to your site code to switch it on; while it
+  is empty no script is requested at all.
+{%- endcomment -%}
+{%- if site.goatcounter != "" -%}
+<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+{%- endif -%}

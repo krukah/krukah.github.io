@@ -1,0 +1,50 @@
+title: krukah
+author: Kelechi Ukah
+email: ukahkelechi@gmail.com
+url: "https://krukah.com"
+baseurl: ""
+description: >-
+  Kelechi Ukah writes about markets, software, physics, game theory, film,
+  and whatever else is open on my desk.
+
+github_user: krukah
+linkedin_url: "https://www.linkedin.com/in/kelechi-ukah-692016164/"
+location: NEW YORK
+
+permalink: /:title/
+timezone: America/New_York
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# ── The canonical tag vocabulary. A post should use exactly one of these.
+#    The chip row on the home page is built from tags actually in use, so a
+#    typo here shows up as a stray chip rather than an error.
+tag_vocabulary: [markets, software, physics, ai, music, film]
+
+# ── Analytics. Sign up at goatcounter.com, put your site code here, and the
+#    script starts loading. Leave it empty and no script is emitted at all.
+#    No cookies, no consent banner, nothing to disclose.
+goatcounter: ""
+
+# ── Post front matter contract
+#    title:        required
+#    date:         required (YYYY-MM-DD)
+#    tags:         required, one from tag_vocabulary
+#    plate:        required, a file in _includes/plates — every post has a drawing
+#    description:  required, one sentence; feeds the feed, og tags, and the
+#                  subtitle under the post title
+defaults:
+  - scope: { path: "", type: "posts" }
+    values:
+      layout: post
+      plate: rosette
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md

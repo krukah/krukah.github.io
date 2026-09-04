@@ -1,0 +1,33 @@
+# Order here is the order on the page. Add homelab entries as they happen.
+- name: Novig
+  url: https://novig.com
+  plate: ladder
+  est: 2021
+  blurb: >-
+    America's sports prediction market. Peer-to-peer pricing, no vig, and a
+    real order book behind every line.
+
+- name: Robopoker
+  url: https://robopoker.io
+  plate: tree
+  est: 2021
+  blurb: >-
+    An NLHE toolkit in Rust. Hand isomorphism, hierarchical k-means
+    abstraction over earth mover's distance, MCCFR blueprints, depth-limited
+    subgame search, and a browser client to play against it.
+
+- name: Navier
+  url: https://github.com/krukah/navier
+  plate: wave
+  est: 2026
+  blurb: >-
+    A Hyperliquid client in Rust. no_std throughout, zero allocation on the
+    hot path, and a multi-strategy market maker built on top.
+
+- name: ATLAS
+  url: https://cds.cern.ch/record/2859916
+  plate: rosette
+  est: 2018
+  blurb: >-
+    Herchel Smith fellow at CERN. New Small Wheel calibration, combinatoric
+    algorithms for jet reconstruction, Lorentz boost networks.

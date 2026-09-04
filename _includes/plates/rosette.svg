@@ -1,0 +1,12 @@
+<svg viewBox="0 0 120 120" role="presentation" focusable="false">
+  <circle class="p-l" cx="60" cy="60" r="52"/>
+  <circle class="p-f" cx="60" cy="60" r="40" stroke-dasharray="5 4.5"/>
+  <circle class="p-f" cx="60" cy="60" r="28" stroke-dasharray="3.5 3.6"/>
+  <circle class="p-l" cx="60" cy="60" r="14"/>
+  <path class="p-h" d="M60 60 C76 51 94 42 110 36"/>
+  <path class="p-h" d="M60 60 Q35 70 15 90"/>
+  <path class="p-j" d="M60 60 Q38 65 19 75"/>
+  <path class="p-j" d="M60 60 Q40 76 26 94"/>
+  <path class="p-j" d="M60 60 Q52 76 41 90"/>
+  <circle class="p-d" cx="60" cy="60" r="2.2"/>
+</svg>
