@@ -7,7 +7,7 @@ description: >-
 ---
 
 I am Kelechi Ukah, founder and CTO at [Novig](https://novig.com), a
-peer-to-peer sports exchange. At night I build
+federally regulated sports exchange. At night I build
 [Robopoker](https://robopoker.io), a no-limit hold'em solver, and
 [Navier](https://github.com/krukah/navier), a Hyperliquid client. Both in
 Rust.
