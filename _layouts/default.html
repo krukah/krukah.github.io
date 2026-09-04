@@ -8,6 +8,27 @@
 {{ content }}
   </main>
   {% include footer.html %}
+  <script>
+    (function(){
+      var flip = document.getElementById('flip');
+      if (!flip) return;
+      var root = document.documentElement;
+      function paint(){
+        var light = root.getAttribute('data-theme') === 'light';
+        flip.setAttribute('aria-pressed', light ? 'true' : 'false');
+        flip.setAttribute('aria-label',
+          light ? 'Switch to the blueprint' : 'Switch to the whiteprint');
+      }
+      flip.addEventListener('click', function(){
+        var light = root.getAttribute('data-theme') !== 'light';
+        if (light) root.setAttribute('data-theme','light');
+        else root.removeAttribute('data-theme');
+        try{ localStorage.setItem('krukah-theme', light ? 'light' : 'dark'); }catch(e){}
+        paint();
+      });
+      paint();
+    })();
+  </script>
   {% include analytics.html %}
 </body>
 </html>

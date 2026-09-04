@@ -1,7 +1,22 @@
 <footer class="foot">
   <div class="wrap">
-    <span>{{ site.author | upcase }} — {{ 'now' | date: "%Y" }}</span>
-    <span><a href="mailto:{{ site.email }}">{{ site.email }}</a></span>
-    <span><a href="{{ '/feed.xml' | relative_url }}">FEED</a></span>
+    <dl class="block">
+      <div>
+        <dt>DRAWN BY</dt>
+        <dd>{{ site.author | upcase }}, {{ 'now' | date: "%Y" }}</dd>
+      </div>
+      <div>
+        <dt>EMAIL</dt>
+        <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+      </div>
+      <div>
+        <dt>CODE</dt>
+        <dd><a href="https://github.com/{{ site.github_user }}">github.com/{{ site.github_user }}</a></dd>
+      </div>
+      <div>
+        <dt>FEED</dt>
+        <dd><a href="{{ '/feed.xml' | relative_url }}">atom</a></dd>
+      </div>
+    </dl>
   </div>
 </footer>

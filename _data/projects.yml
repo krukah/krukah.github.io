@@ -5,17 +5,16 @@
   est: 2021
   blurb: >-
     America's most liquid sports prediction market. Revolutionizing the industry
-    one fill at a time. Come build with us!
+    one order book at a time. Come build with us!
 
 - name: Robopoker
   url: https://robopoker.io
   plate: tree
   est: 2021
   blurb: >-
-    A feature-complete NLHE solver toolkit in Rust. Seeking
-    state-of-the-art parity with Pluribus. Nanosecond hand evaluation,
-    hierarchical k-means abstraction, optimal transport, MCCFR blueprint training, depth-limited
-    subgame search, and more.
+    A complete NLHE solver toolkit in Rust, from nanosecond hand evaluation
+    to depth-limited subgame search. Chasing state-of-the-art parity with
+    Pluribus.
 
 - name: Navier
   url: https://github.com/krukah/navier

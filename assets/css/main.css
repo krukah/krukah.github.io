@@ -1,15 +1,18 @@
 /* ══════════════════════════════════════════════════════════════════════
    krukah.com — cyanotype. A line drawing on blueprint stock.
 
-   Committed single theme: a blueprint is printed, so there is no light
-   mode. Every colour is painted explicitly and nothing is inherited.
-   Palette is the atlas blueprint theme, unchanged.
+   Two prints of the same drawing. Dark is the cyanotype: white lines on
+   blue stock, the atlas blueprint palette unchanged. Light is its negative,
+   a whiteprint: blue lines on white paper. Every colour resolves from the
+   tokens below, so the plates and the ruling invert with everything else.
    ══════════════════════════════════════════════════════════════════════ */
 :root{
+  /* dark is the default: a cyanotype print, white lines on blue stock */
   --bg:#0a2a50; --bg2:#082444; --panel:#072040; --panel2:#0a2749;
-  --line:#265f95; --line2:#3a76b0; --grid:#12406e;
+  --line:#265f95; --line2:#3a76b0; --grid:#0e3461; --grid2:#124274;
   --ink:#f2f8ff; --dim:#b3d4ee; --faint:#7ba7cc; --hot:#ffe0a0;
   --green:#c9f5cf; --violet:#e2d3ff;
+  --sel-bg:#2f6ea6; --sel-fg:#ffffff;
 
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   /* Prose is the one place the blueprint bends. Set --prose to var(--mono)
@@ -20,6 +23,17 @@
   --measure:34rem;   /* running text, roughly 62 characters */
 }
 
+/* Light is the negative of the same print: blue lines on white paper, the
+   way a whiteprint reverses a blueprint. One block, because the script in
+   <head> stamps data-theme from either the saved choice or the OS. */
+:root[data-theme="light"]{
+  --bg:#f4f7fb; --bg2:#eaf1f8; --panel:#e9f0f8; --panel2:#eff4fa;
+  --line:#7ea9cd; --line2:#4d7fae; --grid:#e7eef6; --grid2:#dae5f0;
+  --ink:#0a2a50; --dim:#2f5a86; --faint:#4c7196; --hot:#96590c;
+  --green:#1c6f47; --violet:#5f47a0;
+  --sel-bg:#bcd6ee; --sel-fg:#0a2a50;
+}
+
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
@@ -27,7 +41,7 @@ body{
   font-family:var(--mono); font-size:15px; line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-::selection{background:#2f6ea6; color:#fff}
+::selection{background:var(--sel-bg); color:var(--sel-fg)}
 img{max-width:100%; height:auto}
 a{color:inherit}
 :focus-visible{outline:1px solid var(--hot); outline-offset:2px}
@@ -38,14 +52,17 @@ main{position:relative}
 .skip:focus{left:1rem; top:.6rem; z-index:10; background:var(--bg2);
   border:1px solid var(--hot); padding:.4rem .7rem; color:var(--ink)}
 
-/* the drawing grid, faded off before it reaches the text */
+/* the drawing grid: fine rules every 32px, heavier ones every 128px, the
+   way a sheet of drafting stock is ruled. Faded off before the text. */
 .field{
-  position:absolute; inset:0; height:26rem; pointer-events:none; opacity:.5;
+  position:absolute; inset:0; pointer-events:none;
   background-image:
+    repeating-linear-gradient(0deg,var(--grid2) 0 1px,transparent 1px 128px),
+    repeating-linear-gradient(90deg,var(--grid2) 0 1px,transparent 1px 128px),
     repeating-linear-gradient(0deg,var(--grid) 0 1px,transparent 1px 32px),
     repeating-linear-gradient(90deg,var(--grid) 0 1px,transparent 1px 32px);
-  -webkit-mask-image:linear-gradient(180deg,#000 0%,#0008 45%,transparent 100%);
-  mask-image:linear-gradient(180deg,#000 0%,#0008 45%,transparent 100%);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 62%,#0009 86%,transparent 100%);
+  mask-image:linear-gradient(180deg,#000 0%,#000 62%,#0009 86%,transparent 100%);
 }
 
 /* ── plates ─────────────────────────────────────────────────────────────
@@ -79,7 +96,13 @@ main{position:relative}
 .top a:hover{color:var(--hot); border-bottom-color:var(--hot)}
 .top__me{color:var(--faint)}
 .top__me a{color:var(--faint)}
-.top nav{display:flex; gap:1.4rem}
+.top nav{display:flex; gap:1.4rem; align-items:center}
+.top__flip{appearance:none; background:none; border:0; cursor:pointer;
+  color:var(--dim); padding:0; display:flex; align-items:center;
+  line-height:0}
+.top__flip svg{display:block; width:14px; height:14px}
+.top__flip:hover{color:var(--hot)}
+.top__flip:focus-visible{outline:1px solid var(--hot); outline-offset:3px}
 .top nav a[aria-current="page"]{color:var(--ink); border-bottom-color:var(--line2)}
 
 /* ── hero ─────────────────────────────────────────────────────────────── */
@@ -97,9 +120,13 @@ main{position:relative}
   font-size:11px; letter-spacing:.08em; color:var(--faint)}
 
 /* ── section rules ────────────────────────────────────────────────────── */
-.band{margin:3rem 0 1rem; scroll-margin-top:1.5rem; display:flex; align-items:center; gap:.75rem;
-  font-size:11px; font-weight:600; letter-spacing:.16em; color:var(--faint)}
-.band::after{content:""; flex:1; height:1px; background:var(--line)}
+.band{margin:3rem 0 1rem; scroll-margin-top:1.5rem; display:flex;
+  align-items:center; gap:.75rem; font-size:11px; font-weight:600;
+  letter-spacing:.16em; color:var(--faint)}
+.band::before{content:""; width:1px; height:8px; background:var(--line2);
+  flex:0 0 auto}
+.band::after{content:""; flex:1; height:8px;
+  border-bottom:1px solid var(--line); border-right:1px solid var(--line2)}
 .band a{color:var(--faint); text-decoration:none; letter-spacing:.08em}
 .band a:hover{color:var(--hot)}
 
@@ -149,18 +176,24 @@ main{position:relative}
   color:var(--faint); font-variant-numeric:tabular-nums}
 
 /* ── empty writing register ───────────────────────────────────────────── */
-.hush{border:1px solid var(--line); padding:1.5rem 1.35rem; color:var(--faint);
-  font-size:13.5px; line-height:1.85}
+.hush{position:relative; background:var(--bg); border:1px solid var(--line);
+  padding:1.5rem 1.35rem; color:var(--faint); font-size:13.5px; line-height:1.85}
+.hush::before,.hush::after{content:""; position:absolute; width:12px;
+  height:12px; border:1px solid var(--line2)}
+.hush::before{top:-1px; left:-1px; border-right:0; border-bottom:0}
+.hush::after{bottom:-1px; right:-1px; border-left:0; border-top:0}
 .hush p{margin:0; max-width:var(--measure)}
 .hush a{color:var(--hot); text-decoration:none;
   border-bottom:1px solid var(--line2)}
 .hush a:hover{border-bottom-color:var(--hot)}
 
 /* ── project cells ───────────────────────────────────────────────────────── */
-.cells{display:grid; gap:1rem; grid-template-columns:1fr}
+.cells{display:grid; gap:1rem; grid-template-columns:1fr;
+  grid-auto-rows:1fr}
 @media(min-width:640px){ .cells{grid-template-columns:1fr 1fr} }
 .cell{
-  display:grid; gap:.15rem 1rem; align-items:start; text-decoration:none;
+  position:relative; display:grid; gap:.15rem 1rem; align-items:start;
+  text-decoration:none; background:var(--bg);
   border:1px solid var(--line); padding:1.1rem;
   grid-template-columns:52px 1fr;
   grid-template-areas:"plate name" "plate est" "say say";
@@ -172,17 +205,14 @@ main{position:relative}
   color:var(--faint); align-self:start}
 .cell__say{grid-area:say; margin:.85rem 0 0; font-size:13.5px; line-height:1.65;
   color:var(--dim)}
+.cell::before,.cell::after{content:""; position:absolute; width:12px;
+  height:12px; border:1px solid var(--line2)}
+.cell::before{top:-1px; left:-1px; border-right:0; border-bottom:0}
+.cell::after{bottom:-1px; right:-1px; border-left:0; border-top:0}
 .cell:hover{border-color:var(--hot); background:var(--panel)}
+.cell:hover::before,.cell:hover::after{border-color:var(--hot)}
 .cell:hover .p-l{stroke:var(--line2)}
 .cell:hover .p-f{stroke:var(--dim)}
-
-/* ── inline contact row ───────────────────────────────────────────────── */
-.reach{display:flex; flex-wrap:wrap; justify-content:space-around;
-  text-align:center; gap:.6rem 2rem; font-size:13px}
-.reach span{color:var(--faint)}
-.reach a{color:var(--hot); text-decoration:none;
-  border-bottom:1px solid var(--line2)}
-.reach a:hover{border-bottom-color:var(--hot)}
 
 /* ── post page ────────────────────────────────────────────────────────── */
 .post__head{padding:3rem 0 2rem; border-bottom:1px solid var(--line);
@@ -269,12 +299,24 @@ main{position:relative}
 
 /* ── footer ───────────────────────────────────────────────────────────── */
 .foot{margin-top:4rem}
-.foot .wrap{padding-top:1.1rem; padding-bottom:3rem;
-  border-top:1px solid var(--line2); display:flex; justify-content:space-between;
-  gap:.6rem 1.5rem; flex-wrap:wrap; font-size:10.5px; letter-spacing:.09em;
+.foot .wrap{padding-bottom:3rem}
+.block{display:grid; grid-template-columns:repeat(2,1fr);
+  border:1px solid var(--line2); background:var(--bg)}
+.block > div{padding:.55rem .8rem; min-width:0;
+  border-right:1px solid var(--line); border-bottom:1px solid var(--line)}
+.block > div:nth-child(2n){border-right:0}
+.block > div:nth-last-child(-n+2){border-bottom:0}
+@media(min-width:640px){
+  .block{grid-template-columns:repeat(4,1fr)}
+  .block > div{border-bottom:0; border-right:1px solid var(--line)}
+  .block > div:last-child{border-right:0}
+}
+.block dt{margin:0 0 .3rem; font-size:9px; letter-spacing:.14em;
   color:var(--faint)}
-.foot a{color:var(--hot); text-decoration:none}
-.foot a:hover{text-decoration:underline}
+.block dd{margin:0; font-size:11.5px; letter-spacing:.03em; color:var(--ink);
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.block a{color:var(--hot); text-decoration:none}
+.block a:hover{text-decoration:underline}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;
