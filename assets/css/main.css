@@ -131,7 +131,7 @@ main{position:relative}
 .band a:hover{color:var(--hot)}
 
 /* ── post list ────────────────────────────────────────────────────────── */
-.roll{list-style:none; margin:0; padding:0}
+.roll{list-style:none; margin:0; padding:0; background:var(--bg)}
 .roll__item{border-bottom:1px solid var(--line)}
 .roll__item:first-child{border-top:1px solid var(--line)}
 .roll__link{
@@ -278,6 +278,36 @@ main{position:relative}
 .after b{display:block; font-weight:400; font-size:10px; letter-spacing:.12em;
   color:var(--faint); margin-bottom:.3rem}
 .after__next{text-align:right; margin-left:auto}
+
+
+/* ── register pages ─────────────────────────────────────────────────────
+   /about/ is a list of facts, not an essay, so it is set the way the rest
+   of the site sets data: mono, full width, headings as banded dimension
+   rules, entries on hairlines. Posts keep the prose treatment above. */
+.post__head--reg .post__title{font-family:var(--mono); font-weight:700;
+  font-size:clamp(28px,4.6vw,44px); letter-spacing:-.03em; line-height:1}
+.post__head--reg .post__sub{font-family:var(--mono); font-size:14px;
+  line-height:1.7}
+
+.prose--reg{max-width:none; font-family:var(--mono); font-size:14px;
+  padding-top:1.5rem}
+.prose--reg h2{display:flex; align-items:center; gap:.75rem;
+  margin:2.75rem 0 0; font-family:var(--mono); font-size:11px;
+  font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--faint)}
+.prose--reg h2::before{content:""; flex:0 0 auto; width:1px; height:8px;
+  background:var(--line2)}
+.prose--reg h2::after{content:""; flex:1; height:8px;
+  border-bottom:1px solid var(--line); border-right:1px solid var(--line2)}
+.prose--reg ul{list-style:none; margin:1rem 0 0; padding:0;
+  background:var(--bg)}
+.prose--reg li{margin:0; padding:.72rem .5rem;
+  border-bottom:1px solid var(--line); line-height:1.5}
+.prose--reg li:first-child{border-top:1px solid var(--line)}
+.prose--reg li + li{margin-top:0}
+.prose--reg hr{margin:2.75rem 0 1.25rem}
+.prose--reg p{max-width:var(--measure); font-size:12.5px; line-height:1.85;
+  color:var(--faint)}
 
 /* ── rouge ────────────────────────────────────────────────────────────── */
 .highlight .c,.highlight .c1,.highlight .cm,.highlight .cs{color:var(--faint);

@@ -1,9 +1,10 @@
 ---
 layout: default
 ---
+{%- if page.register %}<div class="field" aria-hidden="true"></div>{% endif %}
 <div class="wrap">
   {%- if page.plate %}
-  <header class="post__head">
+  <header class="post__head{% if page.register %} post__head--reg{% endif %}">
     {% include plate.html name=page.plate scale='lg' %}
     <div>
       <h1 class="post__title">{{ page.title }}</h1>
@@ -17,7 +18,7 @@ layout: default
     <h1 class="page__title">{{ page.title }}</h1>
   </header>
   {%- endif %}
-  <article class="prose">
+  <article class="prose{% if page.register %} prose--reg{% endif %}">
     {{ content }}
   </article>
 </div>
