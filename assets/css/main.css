@@ -46,22 +46,31 @@ img{max-width:100%; height:auto}
 a{color:inherit}
 :focus-visible{outline:1px solid var(--hot); outline-offset:2px}
 
-main{position:relative}
+main{position:relative; overflow-x:clip}
 .wrap{position:relative; max-width:var(--wrap); margin:0 auto; padding:0 1.5rem}
 .skip{position:absolute; left:-9999px}
 .skip:focus{left:1rem; top:.6rem; z-index:10; background:var(--bg2);
   border:1px solid var(--hot); padding:.4rem .7rem; color:var(--ink)}
 
 /* the drawing grid: fine rules every 32px, heavier ones every 128px, the
-   way a sheet of drafting stock is ruled. Faded off before the text. */
+   way a sheet of drafting stock is ruled.
+
+   The sheet is registered to the content column, not to the window, so a
+   rule falls in the same place relative to the layout at every width. The
+   ruled layer bleeds 3200px past the column either side — a whole number
+   of both pitches (100 x 32, 25 x 128) — so the lattice stays in phase,
+   and main clips the overhang. Percentages cannot do this: in
+   background-position their basis is (area - image), which is zero for a
+   gradient with no background-size, and vw would count the scrollbar. */
+.sheet{position:absolute; top:0; bottom:0; left:0; right:0;
+  max-width:var(--wrap); margin-inline:auto; pointer-events:none}
 .field{
-  position:absolute; inset:0; pointer-events:none;
+  position:absolute; top:0; bottom:0; left:-3200px; right:-3200px;
   background-image:
     repeating-linear-gradient(0deg,var(--grid2) 0 1px,transparent 1px 128px),
     repeating-linear-gradient(90deg,var(--grid2) 0 1px,transparent 1px 128px),
     repeating-linear-gradient(0deg,var(--grid) 0 1px,transparent 1px 32px),
     repeating-linear-gradient(90deg,var(--grid) 0 1px,transparent 1px 32px);
-  background-position-x:calc((100% - var(--wrap)) / 2);
   -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 62%,#0009 86%,transparent 100%);
   mask-image:linear-gradient(180deg,#000 0%,#000 62%,#0009 86%,transparent 100%);
 }
