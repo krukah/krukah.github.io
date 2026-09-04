@@ -32,5 +32,5 @@ Drop one of the plates into the body as a figure when a drawing helps:
 </figure>
 
 Available plates: `rosette` `ladder` `tree` `cluster` `wave` `lattice`
-`keys` `reel` `compass`. Add a new one as an SVG in `_includes/plates/` and a `when`
+`keys` `reel` `compass` `candles`. Add a new one as an SVG in `_includes/plates/` and a `when`
 branch in `_includes/plate.html`.

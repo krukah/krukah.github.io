@@ -79,6 +79,8 @@ main{position:relative}
 .plate .p-h{stroke:var(--hot); stroke-width:1.3}
 .plate .p-j{stroke:var(--hot); stroke-width:.9}
 .plate .p-d{fill:var(--hot); stroke:none}
+.plate .p-s{fill:var(--line); stroke:var(--line); stroke-width:1;
+  vector-effect:non-scaling-stroke}
 .plate .p-w{stroke-width:2}
 .plate--lg{width:150px}
 .plate--lg .p-l,.plate--lg .p-f{stroke-width:1.1}

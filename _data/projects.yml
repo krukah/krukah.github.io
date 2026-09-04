@@ -18,7 +18,7 @@
 
 - name: Navier
   url: https://github.com/krukah/navier
-  plate: wave
+  plate: candles
   est: 2026
   blurb: >-
     A Hyperliquid client in Rust, optimized for bare metal.
