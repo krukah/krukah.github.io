@@ -3,8 +3,18 @@ layout: default
 ---
 {%- if page.register %}<div class="field" aria-hidden="true"></div>{% endif %}
 <div class="wrap">
-  {%- if page.plate %}
-  <header class="post__head{% if page.register %} post__head--reg{% endif %}">
+  {%- if page.register %}
+  <div class="hero hero--reg">
+    <div>
+      <h1 class="hero__word">{{ page.title }}</h1>
+      {%- if page.lead %}
+      <p class="hero__say">{{ page.lead }}</p>
+      {%- endif %}
+    </div>
+    {%- if page.plate %}{% include plate.html name=page.plate scale='lg' %}{% endif %}
+  </div>
+  {%- elsif page.plate %}
+  <header class="post__head">
     {% include plate.html name=page.plate scale='lg' %}
     <div>
       <h1 class="post__title">{{ page.title }}</h1>

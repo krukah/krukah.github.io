@@ -11,7 +11,7 @@
     <line x1="24.6" y1="95.4" x2="30.3" y2="89.7"/>
     <line x1="95.4" y1="95.4" x2="89.7" y2="89.7"/>
   </g>
-  <path class="p-l" d="M60 20 L53 60 L60 88 Z"/>
-  <path class="p-d" d="M60 20 L67 60 L60 88 Z"/>
+  <path class="p-l" d="M60 27 L54 60 L60 81 Z"/>
+  <path class="p-d" d="M60 27 L66 60 L60 81 Z"/>
   <circle class="p-f" cx="60" cy="60" r="2.6"/>
 </svg>

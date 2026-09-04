@@ -284,10 +284,13 @@ main{position:relative}
    /about/ is a list of facts, not an essay, so it is set the way the rest
    of the site sets data: mono, full width, headings as banded dimension
    rules, entries on hairlines. Posts keep the prose treatment above. */
-.post__head--reg .post__title{font-family:var(--mono); font-weight:700;
-  font-size:clamp(28px,4.6vw,44px); letter-spacing:-.03em; line-height:1}
-.post__head--reg .post__sub{font-family:var(--mono); font-size:14px;
-  line-height:1.7}
+.hero--reg{display:grid; gap:2rem; grid-template-columns:1fr;
+  align-items:center}
+@media(min-width:720px){
+  .hero--reg{grid-template-columns:minmax(0,1fr) 150px; gap:2.5rem}
+}
+.hero--reg .plate{width:150px; justify-self:start}
+@media(min-width:720px){ .hero--reg .plate{justify-self:end} }
 
 .prose--reg{max-width:none; font-family:var(--mono); font-size:14px;
   padding-top:1.5rem}
@@ -299,12 +302,19 @@ main{position:relative}
   background:var(--line2)}
 .prose--reg h2::after{content:""; flex:1; height:8px;
   border-bottom:1px solid var(--line); border-right:1px solid var(--line2)}
-.prose--reg ul{list-style:none; margin:1rem 0 0; padding:0;
-  background:var(--bg)}
-.prose--reg li{margin:0; padding:.72rem .5rem;
+.prose--reg ul{position:relative; list-style:none; margin:1rem 0 0;
+  padding:0; background:var(--bg);
+  border-left:1px solid var(--line); border-right:1px solid var(--line)}
+.prose--reg ul::before,.prose--reg ul::after{content:""; position:absolute;
+  width:12px; height:12px; border:1px solid var(--line2)}
+.prose--reg ul::before{top:-1px; left:-1px; border-right:0; border-bottom:0}
+.prose--reg ul::after{bottom:-1px; right:-1px; border-left:0; border-top:0}
+.prose--reg li{margin:0; padding:.72rem 1rem;
   border-bottom:1px solid var(--line); line-height:1.5}
 .prose--reg li:first-child{border-top:1px solid var(--line)}
 .prose--reg li + li{margin-top:0}
+.prose--reg .ref{display:block; margin-top:.3rem; font-size:12px;
+  color:var(--faint)}
 .prose--reg hr{margin:2.75rem 0 1.25rem}
 .prose--reg p{max-width:var(--measure); font-size:12.5px; line-height:1.85;
   color:var(--faint)}
