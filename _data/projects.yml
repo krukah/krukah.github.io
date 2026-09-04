@@ -25,10 +25,10 @@
     Expressive types, full stack trading tools, and a
     multi-strategy market maker built on top.
 
-- name: ATLAS
+- name: CERN
   url: https://cds.cern.ch/record/2859916
   plate: rosette
   est: 2018
   blurb: >-
-    Herchel Smith fellow at CERN. New Small Wheel calibration, combinatoric
+    Herchel Smith fellow at ATLAS. New Small Wheel calibration, combinatoric
     algorithms for jet reconstruction, and Lorentz boost networks.
